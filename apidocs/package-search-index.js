@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"fr.tiogars.architecture.create.entities"},{"l":"fr.tiogars.architecture.create.forms"},{"l":"fr.tiogars.architecture.create.models"},{"l":"fr.tiogars.architecture.create.services"}];updateSearchResults();

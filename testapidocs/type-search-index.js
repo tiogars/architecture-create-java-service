@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"fr.tiogars.architecture.create.services","l":"AbstractCreateServiceTest"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"}];updateSearchResults();
