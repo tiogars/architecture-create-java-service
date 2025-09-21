@@ -6,7 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import fr.tiogars.architecture.create.entities.AbstractEntity;
 import fr.tiogars.architecture.create.forms.AbstractCreateForm;
-import fr.tiogars.architecture.create.models.AbstractModel;
 
 /**
  * Abstract class for create services.
@@ -18,7 +17,7 @@ import fr.tiogars.architecture.create.models.AbstractModel;
  * @param <Model> the type of the model used in the service
  * @param <CreateRepository> the type of the repository used for CRUD operations
  */
-public abstract class AbstractCreateService<CreateForm extends AbstractCreateForm, Entity extends AbstractEntity, Model extends AbstractModel, CreateRepository extends CrudRepository<Entity, Long>> {
+public abstract class AbstractCreateService<CreateForm extends AbstractCreateForm, Entity extends AbstractEntity, Model, CreateRepository extends CrudRepository<Entity, Long>> {
 
     /**
      * The CrudRepository used for database operations.
