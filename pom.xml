@@ -6,28 +6,35 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>fr.tiogars</groupId>
-  <artifactId>java-public-lib</artifactId>
-  <version>1.0.11-SNAPSHOT</version>
-
-  <name>java-public-lib</name>
-  <description>Java Public Library</description>
-  <url>http://www.example.com</url>
+  <artifactId>architecture-create-service</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>architecture-create-service</name>
+  <description>Architecture Create Service</description>
+  <url>https://github.com/tiogars/architecture-create-java-service</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+    <jacoco.plugin.version>0.8.13</jacoco.plugin.version>
   </properties>
 
   <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/tiogars/java-public-lib</url>
+      <url>https://maven.pkg.github.com/tiogars/architecture-create-service</url>
     </repository>
   </distributionManagement>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+      <version>3.5.4</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -63,12 +70,50 @@
 
   <reporting>
     <plugins>
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jxr-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <testSourceXref>true</testSourceXref>
+        </configuration>
+      </plugin>
       <!--
       https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.9.0</version>
+      </plugin>
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.11.3</version>
+        <configuration>
+          <show>public</show>
+          <!-- Removed unsupported -1.1 option -->
+        </configuration>
+      </plugin>
+      <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.plugin.version}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-report-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.5.4</version>
       </plugin>
     </plugins>
   </reporting>

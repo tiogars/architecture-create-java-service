@@ -2,14 +2,19 @@
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# Package ecosystem values:
+# https://docs.github.com/fr/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-
+# Schedule interval :
+# https://docs.github.com/fr/code-security/dependabot/working-with-dependabot/dependabot-options-reference#interval
 
 version: 2
 updates:
-  - package-ecosystem: "maven" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "maven"
+    directory: "/" #
     schedule:
       interval: "weekly"
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "quarterly"
