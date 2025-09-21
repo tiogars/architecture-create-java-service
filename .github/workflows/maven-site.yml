@@ -1,0 +1,50 @@
+name: Deploy Maven Site to GitHub Pages with gh
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Build and generate Maven site
+        run: mvn clean site
+
+      - name: Authenticate with GitHub CLI
+        run: echo $GH_TOKEN | gh auth login --with-token
+        shell: bash
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.8-9/x64
+          JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.8-9/x64
+
+      - name: Publish site to gh-pages branch
+        run: |
+          gh repo clone ${{ github.repository }} repo-tmp
+          cd repo-tmp
+          git checkout gh-pages || git checkout --orphan gh-pages
+          rm -rf *
+          cp -r ../target/site/* .
+          git add .
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/tiogars/java-public-lib.git
+          git commit -m "Deploy Maven site"
+          git push origin gh-pages --force
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
