@@ -26,13 +26,6 @@ jobs:
       - name: Build and generate Maven site
         run: mvn clean site
 
-      # - name: Authenticate with GitHub CLI
-      #   run: echo $GH_TOKEN | gh auth login --with-token
-      #   shell: bash
-      #   env:
-      #     JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.8-9/x64
-      #     JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.8-9/x64
-
       - name: Publish site to gh-pages branch
         run: |
           gh repo clone ${{ github.repository }} repo-tmp
