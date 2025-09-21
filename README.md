@@ -1,5 +1,3 @@
-# java-public-lib
+# architecture-create-java-service
 
-Template to create a java libary to publish in github registry
-
-[![Build and test](https://github.com/tiogars/java-public-lib/actions/workflows/build.yml/badge.svg)](https://github.com/tiogars/java-public-lib/actions/workflows/build.yml)
+A Java service template for creating entities with a clean architecture approach. This project provides a base structure for building services that handle entity creation, including form handling, entity modeling, and repository interactions.
