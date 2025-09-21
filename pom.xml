@@ -24,7 +24,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/tiogars/architecture-create-service</url>
+      <url>https://maven.pkg.github.com/tiogars/architecture-create-java-service</url>
     </repository>
   </distributionManagement>
 
