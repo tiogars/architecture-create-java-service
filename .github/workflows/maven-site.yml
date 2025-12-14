@@ -14,30 +14,7 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Set up JDK
-        uses: actions/setup-java@v5
+      - uses: tiogars/maven-site-action@v1.0.0
         with:
-          distribution: temurin
-          java-version: 21
-
-      - name: Build and generate Maven site
-        run: mvn clean site
-
-      - name: Publish site to gh-pages branch
-        run: |
-          gh repo clone ${{ github.repository }} repo-tmp
-          cd repo-tmp
-          git checkout gh-pages || git checkout --orphan gh-pages
-          rm -rf *
-          cp -r ../target/site/* .
-          git add .
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git commit -m "Deploy Maven site"
-          git push origin gh-pages --force
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github-repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
