@@ -7,7 +7,7 @@
 
   <groupId>fr.tiogars</groupId>
   <artifactId>architecture-create-service</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>
   <name>architecture-create-service</name>
   <description>Architecture Create Service</description>
