@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tiogars/maven-build-action@v1.0.3
+      - uses: tiogars/maven-build-action@v1.0.8
         with:
           setup-java-server-username: ${{ github.actor }}
           setup-java-server-password: ${{ secrets.GITHUB_TOKEN }}
