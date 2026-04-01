@@ -14,7 +14,7 @@ jobs:
       id-token: write
 
     steps:
-      - uses: tiogars/maven-site-action@v1.0.0
+      - uses: tiogars/maven-site-action@v1.0.1
         with:
           github-repository: ${{ github.repository }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
